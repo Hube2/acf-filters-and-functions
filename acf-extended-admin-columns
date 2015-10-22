@@ -38,10 +38,8 @@
 					}
 					echo '</pre>';
 				}
-				
-				//echo '<pre>';print_r($location);echo '</pre>';
 				break;
-		}
+		} // end switch
 	}
 	add_action('manage_acf-field-group_posts_custom_column', 'acf_field_group_columns_content', 10, 2 );
 	
