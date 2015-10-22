@@ -2,7 +2,7 @@
 	
 	function acf_field_group_columns($columns) {
 		$columns['menu_order'] = __('Menu Order');
-		$columns['location'] = __('Location');
+		$columns['location'] = __('Location Rules');
 		return $columns;
 	}
 	add_filter('manage_edit-acf-field-group_columns', 'acf_field_group_columns', 20);
