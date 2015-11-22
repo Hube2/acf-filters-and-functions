@@ -38,7 +38,7 @@
 	
 	add_filter('acf/location/rule_match/page_level', 'acf_location_rules_match_page_level', 10, 3);
 	function acf_location_rules_match_page_level($match, $rule, $options) {
-		if (!isset($option['post_id'])) {
+		if (!isset($options['post_id'])) {
 			return $match;
 		}
 		$post_type = get_post_type($options['post_id']);
