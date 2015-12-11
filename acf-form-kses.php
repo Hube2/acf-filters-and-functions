@@ -11,4 +11,10 @@
 		}
 	  return $return;
 	}
+	add_filter('acf/update_value', 'acf_wp_kses_post')
+	/*
+		there is another way to do it posted by the author of ACF that can be
+		found here http://www.advancedcustomfields.com/resources/acf_form/#security
+		I'll keep this one here as an alternate
+	*/
 ?>
