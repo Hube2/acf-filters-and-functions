@@ -9,7 +9,7 @@
 		foreach ($data as $index => $value) {
 			$return[$index] = acf_wp_kses_post($value);
 		}
-	  return $return;
+		return $return;
 	}
 	add_filter('acf/update_value', 'acf_wp_kses_post')
 	/*
