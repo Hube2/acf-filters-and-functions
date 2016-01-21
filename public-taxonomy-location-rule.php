@@ -12,8 +12,8 @@
 		return $choices;
 	}
 	
-	add_filter('acf/location/rule_match/taxonomy', 'acf_location_rules_match_public_public_taxonomy', 10, 3);
-	function acf_location_rules_match_public_public_taxonomy($match, $rule, $options) {
+	add_filter('acf/location/rule_match/taxonomy', 'acf_location_rules_match_public_taxonomy', 10, 3);
+	function acf_location_rules_match_public_taxonomy($match, $rule, $options) {
 		if ($rule['value'] != 'public-taxonomy') {
 			return $match;
 		}
