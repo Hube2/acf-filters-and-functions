@@ -43,4 +43,27 @@
 	}
 	add_action('manage_acf-field-group_posts_custom_column', 'acf_field_group_columns_content', 10, 2 );
 	
+	// some css to pretty up the new columns
+	add_action('admin_head', 'admin_acf_columns_css');
+	function admin_acf_columns_css() {
+		?>
+			<style type="text/css">
+				#acf-field-group-wrap .wp-list-table .column-menu_order {
+					width: 10%;
+				}
+				.widefat td.column-location {
+					padding: 0;
+				}
+				.widefat td.column-location pre {
+					margin: 0;
+					padding: 8px 10px;
+					border-top: 1px solid #CCC;
+				}
+				.widefat tbody tr:first-child td.column-location pre {
+					border-top: none;
+				}
+			</style>
+		<?php 
+	}
+	
 ?>
