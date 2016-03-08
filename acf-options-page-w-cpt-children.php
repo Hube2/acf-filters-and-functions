@@ -7,7 +7,7 @@
 			
 			The Cause:
 				ACF adds options page on the "admin_menu" hook with a priority > 9
-				See this not on http://codex.wordpress.org/Function_Reference/register_post_type
+				See this note on http://codex.wordpress.org/Function_Reference/register_post_type
 				for the "show_in_menu" argument:
 			
 					Note: When using 'some string' to show as a submenu of a menu page created by a 
@@ -40,7 +40,7 @@
 			// or you may not be able to find it to remove
 			'menu_slug' => 'test-options-page',
 			'capability' => 'edit_posts',
-			// choose a menu postions that you know will not be changed
+			// choose a menu postion that you know will not be changed
 			'position' => '75.374981',
 			'parent_slug' => '',
 			'icon_url' => 'dashicons-warning',
@@ -79,7 +79,7 @@
 		// this loop is looking for the page slug
 		foreach ($menu as $key => $values) {
 			if ($values[2] == 'test-options-page') {
-				// found one of them, unset it and exit
+				// found our slug, unset the menu item and exit
 				unset($menu[$key]);
 				break;
 			}
