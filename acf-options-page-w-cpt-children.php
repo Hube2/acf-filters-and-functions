@@ -25,6 +25,7 @@
 	
 	*/
 	
+	// add an ACF Options Page
 	add_action('init', 'add_a_test_acf_options_page');
 	function add_a_test_acf_options_page() {
 		if (!function_exists('acf_add_options_page')) {
