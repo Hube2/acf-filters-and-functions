@@ -48,12 +48,7 @@
 		$ancestors = array();
 		if (count($terms)) {
 			foreach ($terms as $term_to_check) {
-				$parent = $term_to_check->parent;
-				while ($parent != 0) {
-					$ancestors[] = $parent;
-					$parent_term = get_term_by('id', $parent, $term->taxonomy);
-					$parent = $parent_term->parent;
-				} // end while
+				$ancestors = array_merge(get_ancestors($term_to_check->term_id, $term->taxonomy));
 			} // end foreach terms
 		} // end if
 		// see if the rule matches any term ancetor
