@@ -2,6 +2,7 @@
   
   /*
     Location rule to for is_admin
+    So a field group in admin only or on front end only
   */
 		
 	add_action('acf/location/rule_types', 'acf_add_special_rule_type');
