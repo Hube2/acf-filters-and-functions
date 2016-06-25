@@ -10,7 +10,7 @@
 	function options_page_rule_values_titles($choices) {
 		$pages = acf_get_options_pages();
 		if (!$pages) {
-			return;
+			return $choices;
 		}
 		foreach ($pages as $page) {
 			$choices[$page['menu_slug']] = $page['page_title'];
