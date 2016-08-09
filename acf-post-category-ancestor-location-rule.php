@@ -40,7 +40,7 @@
 			$terms = wp_get_post_terms(intval($options['post_id']), $term->taxonomy);
 		}
 		if (!is_array($terms)) {
-			$terms = array();
+			$terms = array($terms);
 		}
 		$terms = array_filter($terms);
 		$match = false;
