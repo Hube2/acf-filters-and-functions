@@ -88,7 +88,7 @@
 		
 		if (!count($add) && !count($delete)) {
 			// there are no changes
-			// so there's noting to do
+			// so there's nothing to do
 			return $value;
 		}
 		
