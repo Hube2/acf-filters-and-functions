@@ -97,6 +97,7 @@
 		$add = $new_values;
 		$delete = array_diff($old_values, $new_values);
 		
+		// reorder the arrays to prevent possible invalid index errors
 		$add = array_values($add);
 		$delete = array_values($delete)
 		
