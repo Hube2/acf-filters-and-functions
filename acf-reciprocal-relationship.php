@@ -95,9 +95,10 @@
 		// cause your updates to time out.
 		//$add = array_diff($new_values, $old_values);
 		$add = $new_values;
-		
-		
 		$delete = array_diff($old_values, $new_values);
+		
+		$add = array_values($add);
+		$delete = array_values($delete)
 		
 		if (!count($add) && !count($delete)) {
 			// there are no changes
