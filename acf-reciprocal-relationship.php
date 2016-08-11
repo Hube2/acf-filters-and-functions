@@ -83,7 +83,20 @@
 		// this gives us lists that need to be added
 		// or removed depending on which order we give
 		// the arrays in
-		$add = array_diff($new_values, $old_values);
+		
+		// this line is commented out, this line should be used when setting
+		// up this filter on a new site. getting values and updating values
+		// on every relationship will cause a performance issue you should
+		// only use the second line "$add = $new_values" when adding this
+		// filter to an existing site and then you should switch to the
+		// first line as soon as you get everything updated
+		// in either case if you have too many existing relationships
+		// checking end updated every one of them will more then likely
+		// cause your updates to time out.
+		//$add = array_diff($new_values, $old_values);
+		$add = $new_values;
+		
+		
 		$delete = array_diff($old_values, $new_values);
 		
 		if (!count($add) && !count($delete)) {
