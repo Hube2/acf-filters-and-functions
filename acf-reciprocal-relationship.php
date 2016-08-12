@@ -99,7 +99,7 @@
 		
 		// reorder the arrays to prevent possible invalid index errors
 		$add = array_values($add);
-		$delete = array_values($delete)
+		$delete = array_values($delete);
 		
 		if (!count($add) && !count($delete)) {
 			// there are no changes
