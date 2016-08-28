@@ -5,20 +5,18 @@
 		modify an ACF Options Page beyond the settings in the options page and adding
 		field groups.
 		
-		This files gives an example of how to insert content into several places in an
+		This file gives an example of how to insert content into several places in an
 		options page.
 		
-		A note about the action hooks to use.
+		A note about the action hooks to use: You must know the action hook that will be used by 
+		WP to call the callback function when ACF uses add_menu_page() and add_submenu_page(). 
+		The hook is not returned so you will need to figure out what it is.
 		
-		You must know tha action hook that will be used by WP to call the callback function when
-		ACF uses add_menu_page() and add_submenu_page(). The hook is not returned so you will need
-		to figure out what it is.
-		
-		top level options page slug = "toplevel_page_{$acf_menu_slug}"
+		top level options page hook = "toplevel_page_{$acf_menu_slug}"
 		
 		if top level page redirects to first sub level page use sub options page slug
 		
-		sub options page slug = "{$acf_parent_slug}_page_{$acf_sub_page_slug}"
+		sub options page hook = "{$acf_parent_slug}_page_{$acf_sub_page_slug}"
 		
 	*/
 	
@@ -30,7 +28,7 @@
 	function before_acf_options_page() {
 		/*
 			Before ACF outputs the options page content
-			start an object buffer to that we can capture the output
+			start an object buffer so that we can capture the output
 		*/
 		ob_start();
 	}
