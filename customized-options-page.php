@@ -24,8 +24,9 @@
 	
 	/*
 		create an action for your options page that will run before the ACF callback function
+		see above for information on the hook you need to use
 	*/
-	add_action('toplevel_page_test-options-page', 'before_acf_options_page', 1);
+	add_action('toplevel_page_YOUR-PAGE-SLUG', 'before_acf_options_page', 1);
 	function before_acf_options_page() {
 		/*
 			Before ACF outputs the options page content
@@ -36,8 +37,9 @@
 	
 	/*
 		create an action for your options page that will run after the ACF callback function
+		see above for information on the hook you need to use
 	*/
-	add_action('toplevel_page_test-options-page', 'after_acf_options_page', 20);
+	add_action('toplevel_page_YOUR-PAGE-SLUG', 'after_acf_options_page', 20);
 	function after_acf_options_page() {
 		/*
 			After ACF finishes get the output and modify it
