@@ -8,14 +8,14 @@ File names basically tell you what the code does. See comments in individual fil
 
 Since this repo has started to grow, here is a list of what you'll find in the files.
 
-#####acf-custom-post-type-filters.php
+#####[acf-custom-post-type-filters.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-custom-post-type-filters.php)
 This is a file that gives an example of creating custom location rules to match the posts in a custom
 post type similar to Post and Page.
 
-#####acf-delete-images-when-removed-from-gallery.php
+#####[acf-delete-images-when-removed-from-gallery.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-delete-images-when-removed-from-gallery.php)
 This is an example of how to delete images from the media library when they are removed from a gallery field
 
-#####acf-extended-admin-columns.php
+#####[acf-extended-admin-columns.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-extended-admin-columns.php)
 This is an example of how to extend the ACF admin columns to show additional information. This example adds
 the menu order and the location rules for each group to the admin.
 
