@@ -24,6 +24,14 @@
 		found here http://www.advancedcustomfields.com/resources/acf_form/#security
 		I'll keep this one here as an alternate
 		
+		After doing some additional testing, I would continue to use this over the 
+		array_map() example. The reason being that array_map is not a recursive function
+		in other words if you have nested repeaters (or flex fields) then array_map()
+		will fail on these inputs. This filters also has the benefit of not applying the
+		values to the repeaters in the first place since all of the sub_fields of that
+		repeater will call this function anyway and checking for the repeater fields
+		prevents these fields from being processed twice.
+		
 		This technique could also be used to apply any function safely to all ACF field types.
 		Just replace wp_kses_post with the function you want to use
 		
