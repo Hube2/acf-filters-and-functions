@@ -7,6 +7,12 @@
 		fields on two different post types. this example also assumes that
 		the relationship field(s) do not impose any limits on the number
 		of selections
+		
+		The concept covered in this file has also been coverent on the ACF site
+		on this page https://www.advancedcustomfields.com/resources/bidirectional-relationships/
+		The example shown there is very similar, but requires but is created to work
+		where the field name is the same, similar to my plugin that does this.
+		This example will let you have fields of different names
 	*/
 	
 	// add the filter for your relationship field
