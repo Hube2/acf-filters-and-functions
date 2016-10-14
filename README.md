@@ -29,6 +29,10 @@ repeaters and flexible content fields becuase these fields contain array values 
 these arrays. This filter can also be used as an example of recursively applying any function to ACF fields
 and arrays in general. 
 
+#####[acf-image-aspect-ratio-validation.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-image-aspect-ratio-validation.php)
+Add image aspect ratio validation to image fields. Also an example of how to add multiple setting fields to
+a single setting row for an acf field type setting.
+
 #####[acf-load-parent-theme-field-groups.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-load-parent-theme-field-groups.php)
 This file contains small class that will conditionally load ACF field groups from a theme parent. You add
 this to your parent theme. It looks at the files in the parent themes acf-json folder and if a field group
