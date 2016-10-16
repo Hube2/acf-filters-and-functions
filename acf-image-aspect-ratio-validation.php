@@ -16,12 +16,12 @@
 		Let's say that you set an aspect ratio of 1:1 with a margin of 10%
 		If the width of the image is 100 pixels, this means that the
 		height of the image can be from 90 pixels to 110 pixels
-		100 +/- 10%
+		100 +/- 10% (10px)
 		
 		If the aspect ration is set to 4:3 and the margin at 1%
 		if the width of the uploaded image is 800 pixels
 		then the height can be 594 to 606 pixels
-		300 +/- 1%
+		600 +/- 1% (6px)
 		
 	*/
 	
@@ -30,7 +30,7 @@
 	function acf_image_aspect_ratio_settings($field) {
 		// the technique used for adding multiple fields to a
 		// single setting is copied directly from the ACF Image
-		// field code anything that ACF does can be replicated,
+		// field code. anything that ACF does can be replicated,
 		// you just need to look at how Elliot does it
 		// also, any ACF field type can be used as a setting
 		// field for other field types
@@ -49,7 +49,7 @@
 		$args = array(
 			'name' => 'ratio_height',
 			'type' => 'number',
-			// notice that there's no label hen appending a setting
+			// notice that there's no label when appending a setting
 			'label' => '',
 			'default_value' => 0,
 			'min' => 0,
@@ -107,13 +107,13 @@
 		if (!empty($field['ratio_margin'])) {
 			$margin = floatval($field['ratio_margin']);
 		}
-		$margin = $margin/100; // make it into a %age
+		$margin = $margin/100; // convert % to decimal
 		$min = round($allowed_height - ($allowed_height*$margin));
 		$max = round($allowed_height + ($allowed_height*$margin));
 		if ($height < $min || $height > $max) {
 			// does not meet the requirement, generate an error
 			$errors['aspect_ratio'] = __('Image does not meet Aspect Ratio Requirements of ').
-			                          $ratio_width.__(':').$ratio_height;
+			                          $ratio_width.__(':').$ratio_height.__('&plusmn;').$ratio_margin.__('%');
 		}
 		// return the errors
 		return $errors;
