@@ -57,7 +57,10 @@
 			'prepend' => __('Height'),
 			// this how we append a setting to the previous one
 			'wrapper'		=> array(
-				'data-append' => 'ratio_width'
+				'data-append' => 'ratio_width',
+				'width' => '',
+				'class' => '',
+				'id' => ''
 			)
 		);
 		acf_render_field_setting($field, $args);
@@ -72,7 +75,10 @@
 			'prepend' => __('&plusmn;'),
 			'append'		=> __('%'),
 			'wrapper'		=> array(
-				'data-append' => 'ratio_width'
+				'data-append' => 'ratio_width',
+				'width' => '',
+				'class' => '',
+				'id' => ''
 			)
 		);
 		acf_render_field_setting($field, $args);
