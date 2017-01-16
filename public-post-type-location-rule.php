@@ -27,7 +27,7 @@
 			}
 			$post_type = get_post_type(intval($options['post_id']));
 		}
-		$post_type = get_post_type_object($options['post_type']);
+		$post_type = get_post_type_object($post_type);
 		if (!$post_type) {
 			return false;
 		}
