@@ -16,7 +16,7 @@
 	add_filter('acf/location/rule_match/post_type', 'acf_location_rules_match_public_post_type', 10, 3);
 		
 	function acf_location_rules_match_public_post_type($match, $rule, $options) {
-		if ($rule['value'] != 'public-post-type') {
+		if ($rule['value'] != 'public-post-type' || $options['comment']) {
 			return $match;
 		}
 		if (isset($options['post_type'])) {
