@@ -18,6 +18,15 @@
 		
 		sub options page hook = "{$acf_parent_slug}_page_{$acf_sub_page_slug}"
 		
+		If your having trouble with the hook, to figure out what the hook really is
+		open the file
+		/advanced-custom-fields-pro/pro/admin/options-page.php
+		find the function html, currently on line 459
+		add this code to the top of the function
+		echo '<br><br>',current_filter(),'<br><br>';
+		This will output the correct hook to use for your actions for the options page
+		don't forget to remove the test code
+		
 	*/
 	
 	/*
