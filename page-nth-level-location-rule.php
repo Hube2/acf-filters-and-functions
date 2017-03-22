@@ -52,7 +52,7 @@
 		if (!$page_parent) {
 			$page_level = 1;
 		} else {
-			$ancestors = get_ancestors($options['page_parent'], $post_type);
+			$ancestors = get_ancestors($page_parent, $post_type);
 			$page_level = count($ancestors) + 2;
 		}
 		$operator = $rule['operator'];
