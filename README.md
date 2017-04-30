@@ -77,6 +77,9 @@ ACF shows the menu_title as the choice in location rules. This can be confusing 
 multiple options pages with the same menu title and different page titles. This filter alters the location
 display to show the page title instead.
 
+##### [correct-number-field-mouse-scrollwheel-action.phpp](https://github.com/Hube2/acf-filters-and-functions/blob/master/correct-number-field-mouse-scrollwheel-action.php)
+Correct number field scrollwheel behavior
+
 ##### [default-image-for-image-field.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/default-image-for-image-field.php)
 This is a simple example of how to add a default image setting to image fields. Note that this is only a bisic example and may require you to save the field group before you can select a default image. [I have posted more
 information here on how to correct this situation](https://acfextras.com/default-image-for-image-field/)
