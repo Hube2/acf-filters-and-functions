@@ -1,6 +1,13 @@
 <?php 
 	
 	/*
+		*** IMPORTANT NOTE/WARNING ***
+		If your options page includes very large field groups that use repeaters
+		flex fields or clone fields that there is a lot of data in these fields
+		using and object buffer on the page can very likely cause the use of too
+		much memory and crash your options page.
+		
+		
 		At the time that I am setting up this example it is currently not possible to
 		modify an ACF Options Page beyond the settings in the options page and adding
 		field groups.
