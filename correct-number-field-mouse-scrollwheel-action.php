@@ -1,16 +1,19 @@
 /*
-  This function can be added to functions.php in order to correct the mouse scrollwheel action.
+  This function can be added to functions.php in order to correct the mouse scrollwheel action for number fields.
   
   This is not just an ACF issue, this is a browser issue.
   Whenever a number field has focus, scrolling the mousewheel will change the value of a field,
   even when this is not the desired effect, for example what you really want to do is scroll
-  the page but forgot to click off of the number field before trying to do so.
-  This is, in my opinion and that of others, to be incorrect behavior
+  the page but forgot to click off of the number field to remove focus before trying to do so.
+  This is, in my opinion and that of others, to be incorrect behavior.
   
   This script will only allow the scrollwheel to alter the field value when
   1) The number field has focus
   AND
   2) The mouse is actually over the field
+	
+	This is given as a WordPress action, but with a little modification this concept could be used anywhere.
+	
 */
 
 add_action('admin_footer', 'correct_number_scrollwheel');
