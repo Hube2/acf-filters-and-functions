@@ -1,5 +1,5 @@
 /*
-  This function can be added to functions.php in order to correct the mouse scrollwheel action for number fields.
+  This function can be added to functions.php in order to correct the mouse scroll wheel action for number fields.
   
   This is not just an ACF issue, this is a browser issue.
   Whenever a number field has focus, scrolling the mousewheel will change the value of a field,
