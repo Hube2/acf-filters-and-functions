@@ -102,3 +102,6 @@ This is like the public post type rule, but for taxonomies
 ##### [render-image-in-editor.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/render-image-in-editor.php)
 This is an example or how to render additional information in a field. This particular example shows how to
 display an image when the URL for the image is from another site rather than an image in the media library.
+
+#### [unique-repeater-sub-field.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/unique-repeater-sub-field.php)
+A filter that can be used to check for unique repeater sub field values in any repeater.
