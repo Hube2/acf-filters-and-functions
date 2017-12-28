@@ -3,7 +3,7 @@
 	// when using acf_form()
 	function acf_wp_kses_post($data, $post_id=0, $field=array()) {
 		if (isset($field['type']) && 
-		    ($field['type'] == 'repeater' || $field['type'] == 'flexible_content' || $field['type'] == 'clone')) {
+		    ($field['type'] == 'repeater' || $field['type'] == 'flexible_content' || $field['type'] == 'clone' || $field['type'] == 'group')) {
 			// no need to run it on repeaters
 			// will be called agaian for each subfield
 			return $value;
