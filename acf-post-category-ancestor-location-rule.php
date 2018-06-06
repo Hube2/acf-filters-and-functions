@@ -1,3 +1,4 @@
+<?php 
 // category ancestor location rule
 add_filter('acf/location/rule_types', 'acf_location_types_category_ancestor');
 function acf_location_types_category_ancestor($choices)
@@ -65,3 +66,4 @@ function acf_location_rule_match_category_ancestor($match, $rule, $options)
     }
     return $match;
 }
+?>
