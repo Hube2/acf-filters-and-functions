@@ -4,6 +4,15 @@ General filters and function for use with Advanced Custom Fields WP Plugin
 
 For examples of how to create dynamic loading fields based on other field selections, for example dynamically loading a select field based on a selection made in another select field [see my other examples here](https://github.com/Hube2/acf-dynamic-ajax-select-example).
 
+#### Contributing
+
+If you would like to contribute to these examples, create a pull request with a new file and update the list below. I would like 
+to avoid changing any of the existing examples in this repo unless the changes are to resolve bugs or to deal with any changes 
+to ACF that cause the original examples to stop functioning.
+
+
+#### File/Example List
+
 File names basically tell you what the code does. See comments in individual files for more information.
 
 Since this repo has started to grow, here is a list of what you'll find in the files.
