@@ -91,6 +91,8 @@ convert into a bidirectional relationship. See the comments in the file for more
 
 ##### [acf-reciprocal-relationships-multiple.php](https://github.com/Hube2/acf-filters-and-functions/blob/master/acf-reciprocal-relationships-multiple.php)
 
+Contributed By: (PUncle)[https://github.com/PUncle]
+
 Like the acf-reciprocal-relationship.php example above, this function allows two different reltionship fields
 to reciprocate selections. The difference being that this function usues PHP closures to pass in field keys,
 avoiding the need to hard-code them inside the function; making this example reusable across multiple
