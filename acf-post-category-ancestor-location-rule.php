@@ -1,8 +1,7 @@
 <?php 
 // category ancestor location rule
 add_filter('acf/location/rule_types', 'acf_location_types_category_ancestor');
-function acf_location_types_category_ancestor($choices)
-{
+function acf_location_types_category_ancestor($choices) {
     if (!isset($choices['Post']['post_category_ancestor'])) {
         $choices['Post']['post_category_ancestor'] = 'Post Category Ancestor';
     }
@@ -10,8 +9,7 @@ function acf_location_types_category_ancestor($choices)
 }
 
 add_filter('acf/location/rule_values/post_category_ancestor', 'acf_location_rule_values_category_ancestor');
-function acf_location_rule_values_category_ancestor($choices)
-{
+function acf_location_rule_values_category_ancestor($choices) {
     // copied from acf rules values for post_category
     $terms = acf_get_taxonomy_terms('category');
     if (!empty($terms)) {
@@ -21,8 +19,7 @@ function acf_location_rule_values_category_ancestor($choices)
 }
 
 add_filter('acf/location/rule_match/post_category_ancestor', 'acf_location_rule_match_category_ancestor', 10, 3);
-function acf_location_rule_match_category_ancestor($match, $rule, $options)
-{
+function acf_location_rule_match_category_ancestor($match, $rule, $options) {
     // most of this copied directly from acf post category rule
     $terms = 0;
     if (array_key_exists('post_taxonomy', $options)){
