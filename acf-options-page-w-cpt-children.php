@@ -7,7 +7,7 @@
 			
 			The Cause:
 				ACF adds options page on the "admin_menu" hook with a priority > 9
-				See this note on http://codex.wordpress.org/Function_Reference/register_post_type
+				See this note on https://developer.wordpress.org/reference/functions/register_post_type/#show_in_menu
 				for the "show_in_menu" argument:
 			
 					Note: When using 'some string' to show as a submenu of a menu page created by a 
