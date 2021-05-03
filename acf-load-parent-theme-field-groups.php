@@ -1,4 +1,11 @@
 <?php 
+
+/* IMPORTANT NOTE 
+
+Since this was written AVF added the ability to add load points to load JSON from in addition to the theme
+It would be better to add a json load point for the parent themes acf-json file if a child theme is active
+
+*/
 	
 	/*
 		Add this class to a parent theme that uses ACF5 Pro
