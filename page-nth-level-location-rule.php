@@ -4,80 +4,106 @@
 		ACF custom location rule : Page Level
 		level "1" = top level parent page
 		this should work on any hierarchical post type?
+		Works on number of ancestors
 	*/
 	
-	add_filter('acf/location/rule_types', 'acf_location_rules_page_level');
-	function acf_location_rules_page_level($choices) {
-		$choices['Page']['page_level'] = 'Page Level';
-		return $choices;
-	}
-	
-	add_filter('acf/location/rule_operators', 'acf_location_rules_page_level_operators');
-	function acf_location_rules_page_level_operators($choices) {
-		// remove operators that you do not need
-		$new_choices = array(
-			'<' => 'is less than',
-			'<=' => 'is less than or equal to',
-			'>=' => 'is greater than or equal to',
-			'>' => 'is greater than'
-		);
-		foreach ($new_choices as $key => $value) {
-			$choices[$key] = $value;
-		}
-		return $choices;
-	}
-	
-	add_filter('acf/location/rule_values/page_level', 'acf_location_rules_values_page_level');
-	function acf_location_rules_values_page_level($choices) {
-		// adjust the for loop to the number of levels you need
-		for($i=1; $i<=10; $i++) {
-			$choices[$i] = $i;
-		}
-		return $choices;
-	}
-	
-	add_filter('acf/location/rule_match/page_level', 'acf_location_rules_match_page_level', 10, 3);
-	function acf_location_rules_match_page_level($match, $rule, $options) {
-		if (!isset($options['post_id'])) {
-			return $match;
-		}
-		$post_type = get_post_type($options['post_id']);
-		$page_parent = 0;
-		if (!$options['page_parent']) {
-			$post = get_post($options['post_id']);
-			$page_parent = $post->post_parent;
-		} else {
-			$page_parent = $options['page_parent'];
-		}
-		if (!$page_parent) {
-			$page_level = 1;
-		} else {
-			$ancestors = get_ancestors($page_parent, $post_type);
-			$page_level = count($ancestors) + 2;
-		}
-		$operator = $rule['operator'];
-		$value = $rule['value'];
-		switch ($operator) {
-			case '==':
-				$match = ($page_level == $value);
-				break;
-			case '!=':
-				$match = ($page_level != $value);
-				break;
-			case '<':
-				$match = ($page_level < $value);
-				break;
-			case '<=':
-				$match = ($page_level <= $value);
-				break;
-			case '>=':
-				$match = ($page_level >= $value);
-				break;
-			case '>':
-				$match = ($page_level > $value);
-				break;
-		} // end switch
-		return $match;
-	}
-	
-?>
+	if (class_exists('ACF_LOCATION')) {
+		
+		class location_page_level_jh extends ACF_LOCATION {
+			
+			function initialize() {
+				$this->name = 'page_level';
+				$this->label = 'Page (Post) Level';
+				$this->category = 'page';
+			} // end function initialize
+			
+			static function get_operators($rule) {
+				$operators = array(
+					'!=' => 'is not equal to',
+					'<' => 'is less than',
+					'<=' => 'is less than or equal to',
+					'==' => 'is equal to',
+					'>=' => 'is greater and or equal to',
+					'>' => 'is greater than'
+				);
+				return $operators;
+			} // end static function get_operators
+			
+			public function get_values($rule) {
+				// value indicates number of ancestors
+				$value_add = array(
+					' (Parent)',
+					' (Child)',
+					' (Grandchild)'
+				);
+				$values = array();
+				for ($i=0; $i<10; $i++) {
+					$values[$i] = strval($i+1);
+					if (isset($value_add[$i])) {
+						$values[$i] .= $value_add[$i];
+					}
+				} // end for
+				return $values;
+			} // end public function get_values
+			
+			public function match($rule, $screen, $field_group) {
+				$match = false;
+				if (!isset($screen['post_id'])) {
+					return $match;
+				}
+				if (!isset($screen['page_parent'])) {
+					$ancestors = count(get_ancestors($screen['post_id'], $screen['post_type'], 'post_type'));
+				} else {
+					$ancestors = count(get_ancestors($screen['page_parent'], $screen['post_type'], 'post_type'))+1;
+				}
+				switch ($rule['operator']) {
+					case '!=':
+						$match = ($rule['value'] != $ancestors);
+						break;
+					case '<':
+						$match = ($rule['value'] < $ancestors);
+						break;
+					case '<=':
+						$match = ($rule['value'] <= $ancestors);
+						break;
+					case '==':
+						$match = ($rule['value'] == $ancestors);
+						break;
+					case '>=':
+						$match = ($rule['value'] >= $ancestors);
+						break;
+					case '>':
+						$match = ($rule['value'] > $ancestors);
+						break;
+					default:
+						// do nothing
+						break;
+				} // end switch
+				return $match;
+			} // end public function match
+		
+			private function write_to_file($value, $comment='') {
+				// this function for testing & debuggin only
+				$file = dirname(__FILE__).'/-data-'.date('Y-m-d-h-i').'.txt';
+				$handle = fopen($file, 'a');
+				ob_start();
+				if ($comment) {
+					echo $comment.":\r\n";
+				}
+				if (is_array($value) || is_object($value)) {
+					print_r($value);
+				} elseif (is_bool($value)) {
+					var_dump($value);
+				} else {
+					echo $value;
+				}
+				echo "\r\n\r\n";
+				fwrite($handle, ob_get_clean());
+				fclose($handle);
+			} // end private function write_to_file
+			
+		} // end class location_page_level_jh
+		
+		acf_register_location_type('location_page_level_jh');
+		
+	} // end if class exists
