@@ -81,26 +81,6 @@
 				} // end switch
 				return $match;
 			} // end public function match
-		
-			private function write_to_file($value, $comment='') {
-				// this function for testing & debuggin only
-				$file = dirname(__FILE__).'/-data-'.date('Y-m-d-h-i').'.txt';
-				$handle = fopen($file, 'a');
-				ob_start();
-				if ($comment) {
-					echo $comment.":\r\n";
-				}
-				if (is_array($value) || is_object($value)) {
-					print_r($value);
-				} elseif (is_bool($value)) {
-					var_dump($value);
-				} else {
-					echo $value;
-				}
-				echo "\r\n\r\n";
-				fwrite($handle, ob_get_clean());
-				fclose($handle);
-			} // end private function write_to_file
 			
 		} // end class location_page_level_jh
 		
