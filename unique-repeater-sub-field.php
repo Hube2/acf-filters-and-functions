@@ -55,7 +55,7 @@ function unique_repeater_subfield($valid, $value, $field, $input) {
 		// look for duplicate values in the repeater
 		foreach ($repeater_value as $index => $row) {
 			if ($index != $row_key && strtolower($row[$field_key]) == strtolower($value)) {
-				$valid = 'this value is not unuque';
+				$valid = 'this value is not unique';
 				break;
 			}
 		}
